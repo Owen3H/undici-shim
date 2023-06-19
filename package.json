@@ -7,11 +7,14 @@
   "browser": "dist/umd/browser.cjs",
   "type": "module",
   "exports": {
-    "node": {
-      "import": "./dist/esm/node.js",
-      "require": "./dist/umd/node.cjs"
+    "import": {
+      "node": "./dist/esm/node.js",
+      "default": "./dist/esm/browser.js"
     },
-    "default": "./dist/umd/browser.cjs"
+    "require": {
+      "node": "./dist/umd/node.cjs",
+      "default": "./dist/umd/browser.cjs"
+    }
   },
   "scripts": {
     "build": "npm run clean && npm run build:umd && npm run build:esm",
