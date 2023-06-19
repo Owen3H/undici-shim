@@ -2,19 +2,10 @@
   "name": "undici-shim",
   "version": "0.1.0",
   "description": "Provides Undici request in Node, native fetch in the browser.",
-  "main": "dist/browser.js",
+  "main": "dist/node.js",
   "module": "src/node.js",
+  "browser": "dist/browser.js",
   "type": "module",
-  "exports": {
-    ".": {
-      "node": "./dist/node.js",
-      "default": "./dist/browser.js"
-    }
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "npx rimraf dist"

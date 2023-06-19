@@ -4,9 +4,12 @@ import {
     setGlobalDispatcher 
 } from 'undici'
 
-export const dispatcher = getGlobalDispatcher
-export const useDefaultAgent = () => setGlobalDispatcher(
+const dispatcher = getGlobalDispatcher
+const useDefaultAgent = () => setGlobalDispatcher(
     new Agent({ connect: { timeout: 60_000 }})
 )
 
-export default request
+export {
+    request, request as default,
+    dispatcher, useDefaultAgent
+}
