@@ -7,21 +7,14 @@ Upon trying to distribute a project, I found Undici was not isomorphic and could
 As such, this is a drop-in replacement for Undici when using bundlers like webpack/rollup.<br>
 
 Without the overhead of WHATWG Streams, the [request](https://undici.nodejs.org/#/?id=undicirequesturl-options-promise) proves much faster than fetch.
-```
-|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
+
 |        Tests        | Samples |      Results     | Tolerance | Difference with slowest |
-|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
-│ undici - fetch      │      20 │  1028.31 req/sec │  ± 2.71 % │                       - │
-|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
-│ http - no keepalive │      10 │  3891.51 req/sec │  ± 2.00 % │              + 278.44 % │
-|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
-│ undici - pipeline   │      95 │  6034.47 req/sec │  ± 2.95 % │              + 486.83 % │
-|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
-│ http - keepalive    │      50 │  6382.57 req/sec │  ± 2.98 % │              + 520.68 % │
-|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
-│ undici - request    │      15 │  8528.35 req/sec │  ± 2.11 % │              + 729.35 % │
-|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
-```
+|---------------------|---------|------------------|-----------|-------------------------|
+| undici - fetch      |      20 |  1028.31 req/sec |  ± 2.71 % |                       - |
+| http - no keepalive |      10 |  3891.51 req/sec |  ± 2.00 % |              + 278.44 % |
+| undici - pipeline   |      95 |  6034.47 req/sec |  ± 2.95 % |              + 486.83 % |
+| http - keepalive    |      50 |  6382.57 req/sec |  ± 2.98 % |              + 520.68 % |
+| undici - request    |      15 |  8528.35 req/sec |  ± 2.11 % |              + 729.35 % |
 
 ## Install
 ```bash
