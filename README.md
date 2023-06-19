@@ -6,7 +6,7 @@
 Upon trying to distribute a project, I found Undici was not isomorphic and couldn't be used on the client-side.<br>
 As such, this is a drop-in replacement for Undici when using bundlers like webpack/rollup.<br>
 
-Without the overhead of WHATWG Streams, the [request](https://undici.nodejs.org/#/?id=undicirequesturl-options-promise) proves much faster than fetch.
+Without the overhead of WHATWG Streams, the [request](https://undici.nodejs.org/#/?id=undicirequesturl-options-promise) method proves much faster than fetch.
 
 |        Tests        | Samples |      Results     | Tolerance | Difference with slowest |
 |---------------------|---------|------------------|-----------|-------------------------|
@@ -22,7 +22,7 @@ npm i undici-shim
 ```
 
 ## Usage
-> **Note**
+> **Note**<br>
 > The 'fetch' import here is actually request under the hood.
 
 ```js
