@@ -1,10 +1,9 @@
 {
     "compilerOptions": {
-        "module": "UMD",
+        "module": "ES2022",
         "target": "ES5",
-        "lib": ["DOM", "ES2016"],
         "moduleResolution": "node",
-        "outDir": "dist",
+        "outDir": "dist/esm",
         "skipDefaultLibCheck": true,
         "esModuleInterop": true,
         "importHelpers": false,
