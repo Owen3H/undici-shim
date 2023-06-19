@@ -3,9 +3,24 @@
 ### A small ESM/UMD library providing the fast `request` function from [Undici](https://github.com/nodejs/undici) within Node, otherwise `window.fetch` is utilized for use in the browser.
 
 ## Why?
-Upon trying to distribute a project, I found Undici was not isomorphic and couldn't be used on the client-side. As such, this is a drop-in replacement for Undici when using bundlers like webpack/rollup.<br>
+Upon trying to distribute a project, I found Undici was not isomorphic and couldn't be used on the client-side.<br>
+As such, this is a drop-in replacement for Undici when using bundlers like webpack/rollup.<br>
 
-The [request](https://undici.nodejs.org/#/?id=undicirequesturl-options-promise) method is ~7x faster than fetch.
+Without the overhead of WHATWG Streams, the [request](https://undici.nodejs.org/#/?id=undicirequesturl-options-promise) proves much faster than fetch.
+```
+|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
+|        Tests        | Samples |      Results     | Tolerance | Difference with slowest |
+|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
+│ undici - fetch      │      20 │  1028.31 req/sec │  ± 2.71 % │                       - │
+|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
+│ http - no keepalive │      10 │  3891.51 req/sec │  ± 2.00 % │              + 278.44 % │
+|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
+│ undici - pipeline   │      95 │  6034.47 req/sec │  ± 2.95 % │              + 486.83 % │
+|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
+│ http - keepalive    │      50 │  6382.57 req/sec │  ± 2.98 % │              + 520.68 % │
+|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
+│ undici - request    │      15 │  8528.35 req/sec │  ± 2.11 % │              + 729.35 % │
+|─────────────────────|─────────|──────────────────|───────────|─────────────────────────|
 ```
 
 ## Install
