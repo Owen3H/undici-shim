@@ -3,25 +3,23 @@
 ### A small ESM/UMD library providing the fast `request` function from [Undici](https://github.com/nodejs/undici) within Node, otherwise `window.fetch` is utilized for use in the browser.
 
 ## Why?
-Upon trying to distribute a project, I realised Undici was not isomorphic and could not be used on the client-side.<br>
-While similar libraries exist, they either don't support CJS or use `fetch` instead of `request` within Node.
+Upon trying to distribute a project, I found Undici was not isomorphic and couldn't be used on the client-side. As such, this is a drop-in replacement for Undici when using bundlers like webpack/rollup.<br>
+
+The [request](https://undici.nodejs.org/#/?id=undicirequesturl-options-promise) method is ~7x faster than fetch.
+```
 
 ## Install
-```shell
+```bash
 npm i undici-shim
 ```
 
 ## Usage
+> **Note**
+> The 'fetch' import here is actually request under the hood.
 
-### Node
 ```js
-import request from 'undici-shim'
+import { fetch } from 'undici-shim'
 
-const res = await request('https://jsonplaceholder.typicode.com/posts')
+const res = await fetch('https://jsonplaceholder.typicode.com/posts')
 console.log(res.body.json())
-```
-
-### Browser
-```html
-Soon ...
 ```

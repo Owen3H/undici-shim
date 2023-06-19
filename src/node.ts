@@ -1,15 +1,22 @@
-import { 
-    request, Agent, 
+import {
+    request,
     getGlobalDispatcher, 
-    setGlobalDispatcher 
+    setGlobalDispatcher,
+    Agent, Request, Response,
+    FormData, Headers
 } from 'undici'
 
+const fetch = request
 const dispatcher = getGlobalDispatcher
-const useDefaultAgent = () => setGlobalDispatcher(
-    new Agent({ connect: { timeout: 60_000 }})
-)
 
+const useDefaultAgent = () => {
+    setGlobalDispatcher(new Agent({ connect: { timeout: 60_000 }}))
+    return dispatcher()
+}
+
+export default fetch
 export {
-    request, request as default,
-    dispatcher, useDefaultAgent
+    fetch, dispatcher, useDefaultAgent,
+    Agent, Request, Response,
+    FormData, Headers
 }

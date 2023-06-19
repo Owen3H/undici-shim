@@ -1,1 +1,4 @@
-export default fetch
+const { fetch } = globalThis
+export {
+    fetch, fetch as default
+}
