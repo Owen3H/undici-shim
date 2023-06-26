@@ -6,7 +6,7 @@
         "outDir": "dist/esm",
         "skipDefaultLibCheck": true,
         "esModuleInterop": true,
-        "importHelpers": false,
+        "importHelpers": true,
         "noEmitOnError": true,
         "declaration": false,
         "noImplicitAny": true,
