@@ -1,12 +1,10 @@
 import {
-    request,
-    getGlobalDispatcher, 
-    setGlobalDispatcher,
+    request, pipeline, stream, upgrade, connect,
+    getGlobalDispatcher, setGlobalDispatcher,
     Agent, Request, Response,
     FormData, Headers
 } from 'undici'
 
-const fetch = request
 const dispatcher = getGlobalDispatcher
 
 const useDefaultAgent = () => {
@@ -14,9 +12,11 @@ const useDefaultAgent = () => {
     return dispatcher()
 }
 
-export default fetch
+export default request
 export {
-    fetch, dispatcher, useDefaultAgent,
+    request as fetch,
+    pipeline, stream, upgrade, connect,
+    dispatcher, useDefaultAgent,
     Agent, Request, Response,
     FormData, Headers
 }
