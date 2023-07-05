@@ -12,3 +12,4 @@ npm-debug.log*
 # Distribution & Dependencies
 /dist
 node_modules/
+src/test.js

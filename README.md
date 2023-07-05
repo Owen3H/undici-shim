@@ -3,7 +3,7 @@
 ### A small ESM/UMD library providing the fast `request` function from [Undici](https://github.com/nodejs/undici) within Node, otherwise `window.fetch` is utilized when running in a browser environment.
 
 ## Why?
-Upon trying to distribute a project, I found Undici was not isomorphic and couldn't be used on the client-side.<br>
+Upon trying to distribute a project, I found Undici could not be used on the client-side.<br>
 As such, this is a drop-in replacement for Undici when using bundlers like webpack/rollup.<br>
 
 Without the overhead of WHATWG Streams, the [request](https://undici.nodejs.org/#/?id=undicirequesturl-options-promise) method proves much faster than fetch in both latency and throughput.
@@ -22,20 +22,35 @@ npm i undici-shim
 ```
 
 ## Usage
-
-It is recommended to use the keyword 'fetch' to be consistent across environments.
-
 ```js
-import fetch from 'undici-shim'
+import request from 'undici-shim'
+const res = await request('https://jsonplaceholder.typicode.com/posts')
 
-const res = await fetch('https://jsonplaceholder.typicode.com/posts')
-console.log(await res.body.json()) // body.text() is also possible.
+console.log(await res.body.json())
 ```
 
-otherwise, the following is possible:
+You can also Undici [fetch](https://undici.nodejs.org/#/?id=undicifetchinput-init-promise) instead of request for consistency across environments.
 ```js
-import { request } from 'undici-shim'
+import { fetch } from 'undici-shim'
+const res = await fetch('https://jsonplaceholder.typicode.com/posts')
 
-const res = await request('https://jsonplaceholder.typicode.com/posts')
-console.log(res.body.json())
+console.log(await res.json())
+```
+
+### Exports
+Along with the default export, the following named exports are provided.
+
+**Node**
+```js
+import {
+    pipeline, stream, upgrade, connect,
+    dispatcher, useDefaultAgent,
+    Agent, Request, Response,
+    FormData, Headers
+} = from 'undici-shim'
+```
+
+**Browser**
+```js
+import { Request, Response, Headers } = from 'undici-shim'
 ```
