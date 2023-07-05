@@ -29,7 +29,7 @@ const res = await request('https://jsonplaceholder.typicode.com/posts')
 console.log(await res.body.json())
 ```
 
-You can also Undici [fetch](https://undici.nodejs.org/#/?id=undicifetchinput-init-promise) instead of request for consistency across environments.
+You can also use Undici [fetch](https://undici.nodejs.org/#/?id=undicifetchinput-init-promise) instead of request for consistency across environments.
 ```js
 import { fetch } from 'undici-shim'
 const res = await fetch('https://jsonplaceholder.typicode.com/posts')
