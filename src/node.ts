@@ -14,8 +14,7 @@ const useDefaultAgent = () => {
 
 export default request
 export {
-    request as fetch,
-    pipeline, stream, upgrade, connect,
+    request, pipeline, stream, upgrade, connect,
     dispatcher, useDefaultAgent,
     Agent, Request, Response,
     FormData, Headers
