@@ -3,8 +3,8 @@
   "version": "1.2.2",
   "description": "Provides Undici request in Node, native fetch in the browser.",
   "module": "dist/esm/node.js",
-  "main": "dist/umd/node.js",
-  "browser": "dist/umd/browser.js",
+  "main": "dist/umd/node.cjs",
+  "browser": "dist/umd/browser.cjs",
   "type": "module",
   "exports": {
     "import": {
@@ -12,8 +12,8 @@
       "default": "./dist/esm/browser.js"
     },
     "require": {
-      "node": "./dist/umd/node.js",
-      "default": "./dist/umd/browser.js"
+      "node": "./dist/umd/node.cjs",
+      "default": "./dist/umd/browser.cjs"
     }
   },
   "scripts": {
