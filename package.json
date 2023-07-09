@@ -2,11 +2,8 @@
   "name": "undici-shim",
   "version": "1.4.0",
   "description": "Provides Undici request in Node, native fetch in the browser.",
-  "types": "dist/esm/node.d.ts",
-  "module": "dist/esm/node.js",
-  "main": "dist/umd/node.cjs",
-  "browser": "dist/umd/browser.cjs",
   "type": "module",
+  "types": "dist/esm/node.d.ts",
   "exports": {
     "import": {
       "node": "./dist/esm/node.js",
@@ -18,7 +15,7 @@
     }
   },
   "scripts": {
-    "test": "node src/test.js && node src/test.cjs",
+    "test": "cd test-pkg && npm run test",
     "build": "npm run clean && npm run build:umd && npm run build:esm",
     "build:esm": "tsc --moduleResolution nodenext --declaration",
     "build:umd": "tsc --module UMD --outDir dist/umd",

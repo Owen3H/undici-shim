@@ -13,6 +13,5 @@ npm-debug.log*
 /dist
 node_modules/
 
-# Tests
-src/test.js
-src/test.cjs
+# Testing
+test-pkg/
