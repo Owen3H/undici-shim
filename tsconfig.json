@@ -11,7 +11,8 @@
         "declaration": false,
         "noImplicitAny": true,
         "removeComments": true,
-        "typeRoots": ["node_modules/@types"]
+        "typeRoots": ["node_modules/@types"],
+        "sourceMap": true
     },
     "include": ["src"],
     "exclude": ["node_modules"]

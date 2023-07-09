@@ -12,4 +12,7 @@ npm-debug.log*
 # Distribution & Dependencies
 /dist
 node_modules/
+
+# Tests
 src/test.js
+src/test.cjs
