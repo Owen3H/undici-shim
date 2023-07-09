@@ -8,7 +8,7 @@
         "esModuleInterop": true,
         "importHelpers": true,
         "noEmitOnError": true,
-        "declaration": false,
+        "declaration": true,
         "noImplicitAny": true,
         "removeComments": true,
         "typeRoots": ["node_modules/@types"],

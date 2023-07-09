@@ -3,7 +3,6 @@
   "version": "1.4.1",
   "description": "Provides Undici request in Node, native fetch in the browser.",
   "type": "module",
-  "types": "dist/esm/node.d.ts",
   "exports": {
     "import": {
       "node": "./dist/esm/node.js",
