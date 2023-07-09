@@ -22,9 +22,10 @@ npm i undici-shim
 ```
 
 ## Usage
+### ESM
 ```js
 import request from 'undici-shim'
-const res = await request('https://jsonplaceholder.typicode.com/posts')
+const res = await request('https://jsonplaceholder.typicode.com/posts/1')
 
 console.log(await res.body.json())
 ```
@@ -32,25 +33,28 @@ console.log(await res.body.json())
 You can also use Undici [fetch](https://undici.nodejs.org/#/?id=undicifetchinput-init-promise) instead of request for consistency across environments.
 ```js
 import { fetch } from 'undici-shim'
-const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+const res = await fetch('https://jsonplaceholder.typicode.com/posts/1')
 
 console.log(await res.json())
 ```
 
-### Exports
-Along with the default export, the following named exports are provided.
-
-**Node**
+### CommonJS
 ```js
-import {
-    pipeline, stream, upgrade, connect,
-    dispatcher, useDefaultAgent,
-    Agent, Request, Response,
-    FormData, Headers
-} = from 'undici-shim'
+const { fetch } = require('undici-shim')
+
+fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then(res => res.json())
+    .then(console.log)
+```
+
+## Named Exports
+**Node**<br>
+Starting from v1.3.2, named exports are identical to Undici.
+```js
+import { request, Dispatcher, Headers, ... } = from 'undici-shim'
 ```
 
 **Browser**
 ```js
-import { Request, Response, Headers } = from 'undici-shim'
+import { fetch, Request, Response, Headers } = from 'undici-shim'
 ```
