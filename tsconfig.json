@@ -1,18 +1,17 @@
 {
     "compilerOptions": {
         "module": "ES2022",
-        "target": "ES5",
+        "target": "ES6",
         "moduleResolution": "node",
         "outDir": "dist/esm",
         "skipDefaultLibCheck": true,
         "esModuleInterop": true,
         "importHelpers": true,
         "noEmitOnError": true,
-        "declaration": true,
+        "declaration": false,
         "noImplicitAny": true,
         "removeComments": true,
-        "typeRoots": ["node_modules/@types"],
-        "sourceMap": true
+        "typeRoots": ["node_modules/@types"]
     },
     "include": ["src"],
     "exclude": ["node_modules"]

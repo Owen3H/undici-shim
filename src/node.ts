@@ -8,6 +8,7 @@ const useDefaultAgent = () => {
 
 export * from 'undici'
 export {
+    request,
     request as default,
     useDefaultAgent
 }
