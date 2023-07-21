@@ -1,6 +1,6 @@
 {
   "name": "undici-shim",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Provides Undici request in Node, native fetch in the browser.",
   "type": "module",
   "exports": {
