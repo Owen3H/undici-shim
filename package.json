@@ -16,10 +16,10 @@
   "scripts": {
     "test": "cd test-pkg && npm run test",
     "build": "npm run clean && npm run build:umd && npm run build:esm",
-    "build:esm": "tsc --moduleResolution nodenext --declaration",
+    "build:esm": "tsc --moduleResolution nodenext",
     "build:umd": "tsc --module UMD --outDir dist/umd",
     "clean": "npx rimraf dist",
-    "rollup": "npm run clean && npx rollup -c"
+    "rollup": "npm run clean && npx rollup -c && npm run build:esm && npm run build:umd"
   },
   "keywords": [
     "shim",

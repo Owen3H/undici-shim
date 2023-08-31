@@ -23,7 +23,7 @@ const browser = {
         generatedCode, 
         file: 'dist/umd/browser.cjs', 
         sourcemap: true,
-        ...umdInfo,
+        ...umdInfo
     }, {
         generatedCode,
         file: 'dist/esm/browser.js',
