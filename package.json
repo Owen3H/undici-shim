@@ -1,6 +1,6 @@
 {
   "name": "undici-shim",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Provides Undici request in Node, native fetch in the browser.",
   "type": "module",
   "exports": {
@@ -14,12 +14,12 @@
     }
   },
   "scripts": {
-    "test": "cd test-pkg && npm run test",
-    "build": "npm run clean && npm run build:umd && npm run build:esm",
-    "build:esm": "tsc --moduleResolution nodenext",
+    "test": "cd test-pkg && bun run test",
+    "build": "bun run clean && bun run build:umd && bun run build:esm",
+    "build:esm": "tsc --moduleResolution nodenext --module nodenext",
     "build:umd": "tsc --module UMD --outDir dist/umd",
     "clean": "npx rimraf dist",
-    "rollup": "npm run clean && npx rollup -c && npm run build:esm && npm run build:umd"
+    "rollup": "bun run clean && npx rollup -c && bun run build:esm && bun run build:umd"
   },
   "keywords": [
     "shim",
@@ -48,6 +48,6 @@
   },
   "dependencies": {
     "tslib": "latest",
-    "undici": "latest"
+    "undici": "5.28.4"
   }
 }
