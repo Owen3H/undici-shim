@@ -22,12 +22,10 @@ PNPM - `pnpm i undici-shim`
 
 ## Usage
 ### ESM
-When importing, the `request` method is used by default. You can also specify it as a named export if desired.
+When importing, the `request` method is used by default, though it also works as a named export.
 ```ts
 import request from 'undici-shim'
-```
-
-```ts
+// or
 import { request } from 'undici-shim'
 ```
 
