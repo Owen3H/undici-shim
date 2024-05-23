@@ -31,7 +31,7 @@ import request from 'undici-shim'
 import { request } from 'undici-shim'
 ```
 
-Then simply call it asynchronously and return the response as usual. However, methods like `.json()` and `.text()` have been moved from the response to the body.
+Then simply call it asynchronously and return the response as usual. However, methods like `.json()` and `.text()` have been moved to the body instead of the response like the standard `fetch`.
 ```ts
 const res = await request('https://jsonplaceholder.typicode.com/posts/1')
 console.log(await res.body.json())
