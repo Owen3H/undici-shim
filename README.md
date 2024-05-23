@@ -17,24 +17,31 @@ Without the overhead of WHATWG Streams, the [request](https://undici.nodejs.org/
 | undici - request    |      15 |  8528.35 req/sec |  ± 2.11 % |              + 729.35 % |
 
 ## Install
-```bash
-npm i undici-shim
-```
+Bun (Recommended) - `bun add undici-shim`\
+PNPM - `pnpm i undici-shim`
 
 ## Usage
 ### ESM
-```js
+When importing, the `request` method is used by default. You can also specify it as a named export if desired.
+```ts
 import request from 'undici-shim'
-const res = await request('https://jsonplaceholder.typicode.com/posts/1')
+```
 
+```ts
+import { request } from 'undici-shim'
+```
+
+Then simply call it asynchronously and return the response as usual. However, methods like `.json()` and `.text()` have been moved from the response to the body.
+```ts
+const res = await request('https://jsonplaceholder.typicode.com/posts/1')
 console.log(await res.body.json())
 ```
 
-You can also use Undici [fetch](https://undici.nodejs.org/#/?id=undicifetchinput-init-promise) instead of request for consistency across environments.
-```js
+For consistency across environments, you can use Undici [fetch](https://undici.nodejs.org/#/?id=undicifetchinput-init-promise) instead.
+```ts
 import { fetch } from 'undici-shim'
-const res = await fetch('https://jsonplaceholder.typicode.com/posts/1')
 
+const res = await fetch('https://jsonplaceholder.typicode.com/posts/1')
 console.log(await res.json())
 ```
 
